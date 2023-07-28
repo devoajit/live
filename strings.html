@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Timeout Interview</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      .search_box{
+        color: green;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+    const search_box = document.createElement('input')
+    search_box.setAttribute('class','search_box')
+    document.body.appendChild(search_box)
+    
+    search_box.addEventListener("keypress",(ev)=>{
+      if(ev.key === 'Enter'){
+        ev.preventDefault();
+        str_include(search_box.value);
+      }
+    })
+    //buttom and event
+    const button = document.createElement('button')
+    button.textContent = 'Search'
+    button.addEventListener('click',()=>{
+      str_include(search_box.value)
+    })
+    document.body.appendChild(button)
+    
+      function str_include(st){
+        const str = 'bhai tujhe pata bhi l maine kya likha  isme';
+        const search_term = st;
+        if(str.includes(search_term)){
+          document.write("yes it is there or true")
+        }else{
+          document.write("not found")
+        }
+      }
+    </script>
+  </body>
+</html>
