@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unordered List using javascript</title>
+
+</head>
+<body>
+    <script>
+
+        const members = ['adam', 'Eve', 'Seth', 'Ajit','kumar'];
+        const ul = document.createElement("ul");
+        for(let member of members){
+            const li = document.createElement("li");
+            li.innerText = member;
+            ul.appendChild(li);
+        }
+        document.body.appendChild(ul);
+    </script>
+</body>
+</html>
