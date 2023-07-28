@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Timeout Interview</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <script>
+    const names = ['ajit','aman','naman','lulu','jahaj','uku'];
+    //my work to short outs palindrom
+    let ol = document.createElement('ol')
+    document.body.appendChild(ol);
+    for(let i = 0;i<names.length;i++){
+      //document.write(i + '<br>')
+      let reversed_name =  names[i].split('').reverse().join('');
+      if(reversed_name === names[i]){
+        let li = document.createElement('li')
+        li.appendChild(document.createTextNode(reversed_name))
+        ol.appendChild(li)
+      }
+    }
+    </script>
+  </body>
+</html>
