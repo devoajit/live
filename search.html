@@ -1,86 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Box</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <style>
-  @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Open+Sans:wght@300;700&display=swap');
-</style>
-    <style>
-        body{
-            margin:0;
-            padding: 0;
-        }
-        nav{
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding-left: 2%;
-          padding-right: 2%;
-          background-color: yellow;
-          box-shadow: 0 0 10px grey;
-          position: fixed;
-          width: 96%;
-          top: 0;
-          right: 0;
-          right: 0;
-        }
-        nav h1{
-          font-family: 'Mochiy Pop One';
-          font-size: 18px;
-        }
-        .container{
-           margin-top: 65px;
-            /*height: 100vh;*/
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        form{
-            display: flex;
-            align-items: center;
-            width: 90%;
-            padding-left: 10px;
-            border-radius: 20px;
-            padding-right: 5px;
-            color: white;
-            background: rgb(25,23,38);
-            background: linear-gradient(35deg, rgba(25,23,38,1) 0%, rgba(5,8,10,1) 66%, rgba(1,5,5,1) 78%);
-       }
-       form input{
-        height: 40px;
-        width: 90%;
-        border: none;
-        outline: none;
-        background: transparent;
-        color: white;
-        margin-left:10px;
-       }
-       .content{
-         height: 1500px;
-       }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Box</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Open+Sans:wght@300;700&display=swap');
+  </style>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: 2%;
+      padding-right: 2%;
+      background-color: yellow;
+      box-shadow: 0 0 10px grey;
+      position: fixed;
+      width: 96%;
+      top: 0;
+      right: 0;
+      right: 0;
+    }
+
+    nav h1 {
+      font-family: 'Mochiy Pop One';
+      font-size: 18px;
+    }
+
+    .n-right {
+      display: flex;
+      justify-content: space-between;
+      width: 100px;
+    }
+
+    /* Check box */
+    .tgl-light:checked+.tgl-btn {
+      background: #9FD6AE;
+      padding: 0;
+    }
+
+    .tgl-light+.tgl-btn {
+      background: #f0f0f0;
+      border-radius: 2em;
+      transition: all 0.4s ease;
+    }
+
+    .tgl+.tgl-btn {
+      outline: 0;
+      display: block;
+      width: 3em;
+      position: relative;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .tgl+.tgl-btn::after,
+    .tgl+.tgl-btn::before {
+      position: absolute;
+      display: block;
+      content: "";
+      width: 50%;
+      height: 100%;
+    }
+
+    .tgl:checked+.tgl-btn::after {
+      left: 50%;
+    }
+
+    .tgl-light+.tgl-btn::after {
+      border-radius: 50%;
+      background: #fff;
+      transition: all 0.2s ease;
+    }
+
+    .tgl+.tgl-btn::after {
+      left: 0;
+    }
+
+
+    /* End checkbox */
+
+    .container {
+      margin-top: 65px;
+      /*height: 100vh;*/
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    form {
+      display: flex;
+      align-items: center;
+      width: 90%;
+      padding-left: 10px;
+      border-radius: 20px;
+      padding-right: 5px;
+      color: white;
+      background: rgb(25, 23, 38);
+      background: linear-gradient(35deg, rgba(25, 23, 38, 1) 0%, rgba(5, 8, 10, 1) 66%, rgba(1, 5, 5, 1) 78%);
+    }
+
+    form input {
+      height: 40px;
+      width: 90%;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: white;
+      margin-left: 10px;
+    }
+
+    .content {
+      height: 1500px;
+      width: 90%;
+      margin: auto;
+    }
+  </style>
 </head>
+
 <body>
   <nav>
     <h1>Brand Page</h1>
-    <span class="material-symbols-outlined">
-menu
-</span>
+    <div class="n-right">
+      <input class="tgl tgl-light" style="display: none;" id="cb1" type="checkbox">
+      <label class="tgl-btn" for="cb1"></label>
+      <span class="material-symbols-outlined">
+        menu
+      </span>
+    </div>
   </nav>
-    <div class="container">
-        <form>
-            <span class="material-symbols-outlined">
-                search
-                </span>
-            <input type="text" placeholder="Search the web" />
-        </form>
-    </div>
-    <div class="content">
-      <h3>yeh this is content</h3>
-      <p>and this is gonnna be a long paragraoh. in ehich you can write anything or whatever you can write. or wrong or ight too. so dont' use backspace here.</p>
-    </div>
+  <div class="container">
+    <form>
+      <span class="material-symbols-outlined">
+        search
+      </span>
+      <input type="text" placeholder="Search the web" />
+    </form>
+  </div>
+  <div class="content">
+    <h3>yeh this is content</h3>
+    <p>and this is gonnna be a long paragraoh. in ehich you can write anything or whatever you can write. or wrong or
+      ight too. so dont' use backspace here.</p>
+  </div>
+  <script>
+    let cb1 = document.getElementById('cb1'); cb1.addEventListener('click', () => {
+      if (cb1.checked) {
+        document.body.style.backgroundColor = 'black';
+        document.body.style.color = 'white';
+      } else {
+        document.body.style.backgroundColor = 'white'
+        document.body.style.color = 'black';
+      }
+    })
+  </script>
 </body>
+
 </html>
