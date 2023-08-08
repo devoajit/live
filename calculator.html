@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator v1.0</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        width: 100%;
+        display: flex;
+        background-color: #E2F6FE;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .calc-body {
+        background-color: #3A4553;
+        height: 500px;
+        width: 300px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #calc-display {
+        height: 100px;
+        width: 94%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border: none;
+        outline: none;
+        text-align: right;
+        background-color: #3A4553;
+        color: white;
+        font-size: 50px;
+        padding-right: 3%;
+        padding-left: 3%;
+    }
+
+    .buttons {
+        margin-top: 20px
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* background-color: #E2F6FE; */
+    }
+
+    .row button {
+        width: 50px;
+        height: 50px;
+        margin: 10px;
+        box-shadow: rgba(255, 255, 255, 0.1) -8px -8px 15px, 5px 5px 15px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        background-color: #3A4553;
+        border: none;
+        color: white;
+    }
+
+    @media screen and (max-width:400px) {
+        .calc-body {
+            width: 100%;
+            height: 100vh;
+        }
+    }
+</style>
+
+<body>
+    <div class="calc-body">
+        <input type="text" id="calc-display"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+        <div class="buttons">
+            <div class="row">
+                <button>AC</button>
+                <button>DE</button>
+                <button>%</button>
+                <button>/</button>
+            </div>
+            <div class="row">
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+                <button>*</button>
+            </div>
+            <div class="row">
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button>-</button>
+            </div>
+            <div class="row">
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>+</button>
+            </div>
+            <div class="row">
+                <button>00</button>
+                <button>0</button>
+                <button>.</button>
+                <button>=</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
