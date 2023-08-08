@@ -42,56 +42,6 @@
       width: 100px;
     }
 
-    /* Check box */
-    .tgl-light:checked+.tgl-btn {
-      background: #9FD6AE;
-      padding: 0;
-    }
-
-    .tgl-light+.tgl-btn {
-      background: #f0f0f0;
-      border-radius: 2em;
-      transition: all 0.4s ease;
-    }
-
-    .tgl+.tgl-btn {
-      outline: 0;
-      display: block;
-      width: 3em;
-      position: relative;
-      cursor: pointer;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    .tgl+.tgl-btn::after,
-    .tgl+.tgl-btn::before {
-      position: absolute;
-      display: block;
-      content: "";
-      width: 50%;
-      height: 100%;
-    }
-
-    .tgl:checked+.tgl-btn::after {
-      left: 50%;
-    }
-
-    .tgl-light+.tgl-btn::after {
-      border-radius: 50%;
-      background: #fff;
-      transition: all 0.2s ease;
-    }
-
-    .tgl+.tgl-btn::after {
-      left: 0;
-    }
-
-
-    /* End checkbox */
-
     .container {
       margin-top: 65px;
       /*height: 100vh;*/
@@ -134,7 +84,6 @@
   <nav>
     <h1>Brand Page</h1>
     <div class="n-right">
-      <input class="tgl tgl-light" style="display: none;" id="cb1" type="checkbox">
       <label class="tgl-btn" for="cb1"></label>
       <span class="material-symbols-outlined">
         menu

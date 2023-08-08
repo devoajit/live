@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Questions Riddles</title>
+    <style>
+        button {
+            width: 100px;
+            height: 40px;
+            background-color: chartreuse;
+            border: none;
+            box-shadow: 0 0 2px;
+            display: block;
+        }
+
+        code {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Interview Question Riddles</h1>
+    <p>To to create a button and adding a click listener to it. and on click of that button a set time out riddle should
+        run. so what will be the code for it?</p>
+    <code>
+        //to create a button
+        let btn = document.createElement('button')<br>
+        btn.textContent = 'Click Me'<br>
+        document.body.appendChild(btn);<br>
+    </code>
+
+    <script>
+        //to create a button
+        let btn = document.createElement('button')
+        btn.textContent = 'Click Me'
+        // btn.setAttribute('class','btn')
+        document.body.appendChild(btn);
+
+        btn.addEventListener('click', () => {
+            let num_div = document.createElement('div');
+            num_div.style.marginTop = '10px';
+            document.body.appendChild(num_div)
+            x(num_div);
+        })
+
+        function x(div) {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    div.textContent += "---" + i;
+                }, i * 1000)
+            }
+            div.textContent = 'Lets c code results'
+        }
+    </script>
+</body>
+
+</html>
