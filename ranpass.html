@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Password Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #05203A;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 40px;
+            font-weight: 200;
+        }
+
+        h1 span {
+            display: block;
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        .input-area {
+            display: flex;
+            width: 350px;
+            background-color: white;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        #passwordBox {
+            outline: none;
+            border: none;
+            width: 250px;
+            font-size: 14px;
+            color: red;
+            /* background-color: yellow; */
+        }
+
+        #copyBtn {
+            width: 30px;
+        }
+
+        input[type='submit'] {
+            margin-top: 20px;
+            border: 1px Solid Black;
+            padding: 10px;
+            font-size: 16px;
+            background-color: red;
+            color: white;
+            font-weight: 200;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Generate a<span>Random Password</span></h1>
+        <div class="input-area">
+            <input type="date" placeholder="Password" id="passwordBox">
+            <img src="copy.png" id="copyBtn" onclick="copyPassword()">
+        </div>
+        <input type="submit" onclick="generatePassword()" value="Generate Password">
+    </div>
+    <script>
+        function generatePassword() {
+            const upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            const lowerCase = 'abcdefghijklmnopqrstuvwxyz';
+            const nums = '1234567890';
+            const special = '!@£$%^&*(){}~';
+            const length = 12;
+            const allChars = upperCase + lowerCase + nums + special;
+            let Password = '';
+            while (length > Password.length) {
+                Password += allChars[Math.floor(Math.random() * allChars.length)];
+            }
+            passwordBox.value = Password
+        }
+
+        function copyPassword() {
+            passwordBox.select();
+            document.execCommand('copy');
+        }
+    </script>
+</body>
+
+</html>
