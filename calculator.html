@@ -69,12 +69,21 @@
         color: white;
     }
 
+<<<<<<< HEAD
     /* @media screen and (max-width:400px) {
         .calc-body {
             width: 100%;
             height: 100vh;
         }
     } */
+=======
+    /*@media screen and (max-width:500px) {*/
+    /*    .calc-body {*/
+    /*        width: 100%;*/
+    /*        height: 100vh;*/
+    /*    }*/
+    /*}*/
+>>>>>>> refs/remotes/origin/master
 </style>
 
 <body>
@@ -115,6 +124,7 @@
         </div>
     </div>
     <script>
+<<<<<<< HEAD
         buttons = document.getElementsByTagName('button');
         display = document.getElementById('calc-display');
         for (i = 0; i < buttons.length; i++) {
@@ -138,6 +148,16 @@
                 })
             }
         }
+=======
+      let buttons = document.getElementsByTagName('button');
+      //add click listener
+      for(i = 0;i<buttons.length;i++){
+      x = parseInt(buttons[i].textContent)
+        if(typeof x === 'number'){
+          alert('number')
+        }
+      }
+>>>>>>> refs/remotes/origin/master
     </script>
 </body>
 

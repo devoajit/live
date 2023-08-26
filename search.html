@@ -42,6 +42,60 @@
       width: 100px;
     }
 
+<<<<<<< HEAD
+    /* Check box */
+    .tgl-light:checked+.tgl-btn {
+      background: #9FD6AE;
+      padding: 0;
+    }
+
+    .tgl-light+.tgl-btn {
+      background: #f0f0f0;
+      border-radius: 2em;  
+      /*transition: background 0.4s ease;*/
+    }
+
+    .tgl+.tgl-btn {
+      outline: 0;
+      display: block;
+      width: 3em;
+      position: relative;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .tgl+.tgl-btn::after,
+    .tgl+.tgl-btn::before {
+      position: absolute;
+      display: block;
+      content: "";
+      width: 50%;
+      height: 100%;
+    }
+
+    .tgl:checked+.tgl-btn::after {
+      left: 50%;
+    }
+
+    .tgl-light+.tgl-btn::after {
+      border-radius: 50%;
+      background: #fff;
+      transition: background 0.2s ease;
+    }
+
+    .tgl+.tgl-btn::after {
+      left: 0;
+      background: #f0f0f0;
+    }
+
+
+    /* End checkbox */
+
+=======
+>>>>>>> refs/remotes/live/master
     .container {
       margin-top: 65px;
       /*height: 100vh;*/
@@ -99,7 +153,7 @@
     </form>
   </div>
   <div class="content">
-    <h3>yeh this is content</h3>
+    <h3>yeh wow this is content</h3>
     <p>and this is gonnna be a long paragraoh. in ehich you can write anything or whatever you can write. or wrong or
       ight too. so dont' use backspace here.</p>
   </div>
