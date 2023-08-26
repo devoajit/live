@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journey - Road 2 Code</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            background-color: lightgreen;
+            height: 700px;
+            margin: auto;
+            position: relative;
+        }
+
+        .road {
+            width: 100px;
+            height: 100%;
+            position: absolute;
+            background-color: #1c1c1c;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .road .inside-lines {
+            width: calc(90%-10px);
+            /* background-color: aliceblue; */
+            height: 100%;
+            border-left: 2px solid grey;
+            border-right: 2px solid grey;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        .dashed-lines {
+            height: 100%;
+            /* width: 1px; */
+            width: 0.01px;
+            border: 2px dashed grey;
+            margin: auto;
+        }
+
+        /* .clear{
+            width: 100%;
+        } */
+
+        .left,
+        .right {
+            display: inline-block;
+            width: 80px;
+            height: 150px;
+            /* background-color: grey; */
+            margin-top: 20px;
+        }
+
+        .left {
+            margin-left: calc(50% - 220px);
+        }
+
+        .right {
+            margin-left: calc(50% + 110px);
+        }
+
+        .flag {
+            padding: 10px;
+            border: 5px solid black;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            background-color: yellow;
+            box-shadow: -1px 1px grey, -2px 2px grey, -3px 3px grey, -4px 4px grey, -5px 5px grey;
+            text-align: center;
+        }
+
+        .flag p {
+            font-size: 12px
+        }
+
+
+        @media ()
+    </style>
+</head>
+
+<body>
+    <h1>Journey - Road 2 Code</h1>
+    <p>This is going to be an app which will consist of like todo list. ki kya sikhna hai. And one by one I will
+        complete them. ok. So let's go ahead...</p>
+    <p>Pehli baat ki ye ek app kaise banega??? mtalb interactive hona chahiye. Hai ki nahi... offcourse... yaar design
+        creative ideas nahi ho pate. kya ho sakta. <b>Dekho...</b> journey matlab ki road. sabse pehle ek road banao.
+        Html ko sirf padha nahi hai, balki humne pdhaya bhi hai. hai na...</p>
+    <h2>What to learn???</h2>
+    <p>So let's create a timeline</p>
+
+    <div class="container">
+        <div class="road">
+            <div class="inside-lines">
+                <div class="dashed-lines"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="left">
+                <div class="flag">
+                    <h2>1</h2>
+                    <p>HTML5</p>
+                </div>
+            </div>
+            <div class="right">
+                <div class="flag">
+                    <h2>2</h2>
+                    <p>CSS3</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="left">
+                <div class="flag">
+                    <h2>3</h2>
+                    <p>JavaScript</p>
+                </div>
+            </div>
+            <div class="right">
+                <div class="flag">
+                    <h2>4</h2>
+                    <p>Laravel</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation with CSS and JavaScript</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation-name: move;
+            animation-duration: 2s;
+            display: none;
+        }
+
+        @keyframes move {
+            from {
+                margin-left: 0;
+                /* background-color: white; */
+            }
+
+            to {
+                margin-left: 60%;
+                /* background-color: red; */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Animation with CSS and JavaScript</h1>
+    <p>So will design a box, below this paragraph and move that with keyframes Animation. No use of JavaScript in this.
+        It will move when document loaded. So lets do this....</p>
+    <div class="box">
+        <h3>BOX</h3>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            document.querySelector('.box').style.display = "flex"
+        }, 2000)
+    </script>
+</body>
+
+</html>

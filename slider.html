@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slider using DOM</title>
+    <style>
+        .design {
+            width: 400px;
+            height: 200px;
+            display: flex;
+            /* background-color: blue; */
+        }
+    </style>
 </head>
+
 <body>
     <script>
-        document.body.style.backgroundColor = 'green';
+        //create a container
+        const div = document.createElement("div");
+        div.setAttribute('class', 'design')
+        document.body.appendChild(div);
+
+        //add slider to that container
         const slider = document.createElement("input");
-        document.body.appendChild(slider);
         slider.type = "range";
         slider.max = 10;
         slider.value = 0;
-        const div = document.createElement("div");
-        document.body.appendChild(div);
-        slider.oninput = addStars;
-        function addStars(){
+        div.appendChild(document.createElement("p"))
+
+        //action on input
+        slider.oninput = addStars(div);
+
+        function addStars(div) {
             // alert(this.value)
             div.innerText = "";
-            for(let i = 0; i < this.value; i++){
+            for (let i = 0; i < this.value; i++) {
                 div.append("★")
             }
         }
-        </script>
+    </script>
 </body>
+
 </html>

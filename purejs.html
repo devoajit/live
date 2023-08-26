@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure JavaScript</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 200px;
+            margin: auto;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 15px;
+        }
+
+        .container h1 {
+            text-align: center;
+            color: skyblue;
+            text-transform: uppercase;
+        }
+
+        label,
+        input {
+            display: block;
+        }
+
+        label {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        input {
+            height: 20px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        //main container
+        div = element('div');
+        div.setAttribute('class', 'container');
+        addElement(div, 'body')
+
+        //Page heading - signup
+        h1 = element('h1');
+        h1.textContent = "Signup";
+        addElement(h1, div)
+
+        //form container
+        form_container = element('div');
+        form_container.setAttribute('class', 'form-container');
+        addElement(form_container, div)
+
+        //first name - label
+        f_name = element('label')
+        f_name.for = 'f_name';
+        f_name.textContent = "First Name";
+        addElement(f_name, form_container)
+
+        //first name field
+        f_name_field = element('input');
+        f_name_field.type = 'text';
+        f_name_field.placeholder = "Enter your first name";
+        addElement(f_name_field, form_container)
+
+        //Last Name - label
+        l_name = element('label')
+        l_name.for = 'l_name';
+        l_name.textContent = "Last Name";
+        addElement(l_name, form_container)
+
+        //first name field
+        l_name_field = element('input');
+        l_name_field.type = 'text';
+        l_name_field.placeholder = "Enter your lasr name";
+        addElement(l_name_field, form_container)
+        //last name
+
+        //email
+        form_container.appendChild(element('label'))
+        //password
+
+        //submit button
+
+        // document.body.appendChild(div)
+
+
+        function element(el_name) {
+            return document.createElement(el_name)
+        }
+
+        function addElement(what, where) {
+            if (where == 'body') {
+                document.body.appendChild(what)
+            } else {
+                where.appendChild(what)
+            }
+        }
+    </script>
+</body>
+
+</html>
