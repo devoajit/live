@@ -6,11 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slider using DOM</title>
     <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
         .design {
             width: 400px;
             height: 200px;
-            display: flex;
-            /* background-color: blue; */
+            background-color: blue;
+            padding: 20px;
+            text-align: center;
+            color: white;
         }
     </style>
 </head>
@@ -22,19 +31,29 @@
         div.setAttribute('class', 'design')
         document.body.appendChild(div);
 
+        //add title
+        const h1 = document.createElement('h1')
+        h1.textContent = "Slider With Stars"
+        div.appendChild(h1)
+
         //add slider to that container
         const slider = document.createElement("input");
         slider.type = "range";
         slider.max = 10;
         slider.value = 0;
-        const div = document.createElement("div");
-        document.body.appendChild(div);
+        div.appendChild(slider)
         slider.oninput = addStars;
+
+        //to show the stars below slider
+        const p = document.createElement('p')
+        div.appendChild(p);
+
+
         function addStars() {
             // alert(this.value)
-            div.innerText = "";
+            p.textContent = ""
             for (let i = 0; i < this.value; i++) {
-                div.append("★")
+                p.textContent += '★';
             }
         }
     </script>

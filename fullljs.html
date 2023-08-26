@@ -1,40 +1,45 @@
 <!doctype html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Full Js v1.0</title>
-  </head>
-  <body>
-    <script>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Full Js v1.0</title>
+</head>
+
+<body>
+
+
+  <script>
     //body alignment
     document.body.style.textAlign = 'center'
     text = crEl('h2')
     text.textContent = "Enter Marks"
     document.body.appendChild(text)
-    
+
     //add range input
-     input = document.createElement('input');
-     input.type = 'range';
-     input.min = 0;
-     input.max = 10;
-     document.body.appendChild(input)
-    
+    input = document.createElement('input');
+    input.type = 'range';
+    input.min = 0;
+    input.max = 10;
+    document.body.appendChild(input)
+
     //add text to show values on change
     text = crEl('h3')
-    text.textContent = "You have got "+input.value+" marks in exams."
+    text.textContent = "You have got " + input.value + " marks in exams."
     document.body.appendChild(text)
-    
-     input.oninput = play = () => {
+
+    input.oninput = play => {
       //show Marks
-      if(input.value > 6)
-      text.textContent = "You have got "+input.value+" marks in exams. WELDONE!!"
-     else
-      text.textContent = "You have got "+input.value+" marks in exams. work hard"
-     }
-    
-    function crEl(elname){
+      if (input.value > 6)
+        text.textContent = "You have got " + input.value + " marks in exams. WELDONE!!"
+      else
+        text.textContent = "You have got " + input.value + " marks in exams. work hard"
+    }
+
+    function crEl(elname) {
       return document.createElement(elname)
     }
-    </script>
-  </body>
-</html/ 
+  </script>
+</body>
+
+</html /

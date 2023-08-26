@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial with JS or Without js </title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Enter Marks</h1>
+    <input id="slider" type="range" min="0" max="10" />
+    <h3>You have got <span id="marks"></span> marks in exams. <span id="remarks"></span></h3>
+    <script>
+        let slider = document.querySelector('#slider');
+        slider.oninput = marks = () => {
+            // alert(slider.value)
+            document.querySelector('#marks').textContent = slider.value;
+            if (slider.value > 6)
+                document.getElementById('remarks').textContent = "Exellent!!"
+            else
+                document.getElementById('remarks').textContent = "Work Hard!!"
+        }
+    </script>
+</body>
+
+</html>
