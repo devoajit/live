@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks v1.0</title>
+    <style>
+
+      .header h1{
+        text-align: right;
+      }
+      .add-area{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .quote{
+        padding: 20px 30px;
+      }
+      .quote h2{
+        font-size: 40px;
+        font-weight: bold;
+      }
+      .add-button{
+        background-color: blue;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 25px;
+        font-weight: bolder;
+        color: white;
+        border: none;
+        box-shadow:0 0 5px rgba(0,0,0,0.25);
+      }
+      .textbox{
+        width: 300px;
+        height: 20px;
+        border-radius: 30px;
+        padding: 10px;
+        border: 2px solid black;
+        font-size: 20px;
+      }
+      .timeline{
+        padding: 20px 10px;
+      }
+    </style>
+</head>
+<!--
+so how will be the project will like app or something else
+lets develop the basic first
+-->
+
+<body>
+<div class="container">
+  <div class="header">
+    <h1>Taskito</h1>
+  </div>
+  <div class="add-area">
+    <div class="quote">
+      <h2>Keep daily goals small, life goals bigger!</h2>
+    </div>
+    <button class="add-button" onclick="showTextArea(this)">+</button>
+  </div>
+  <div class="timeline">
+    
+  </div>
+</div>
+
+<script>
+  function showTextArea(btn){
+    btn.style.display = 'none';
+    let div = document.createElement('div')
+    let textbox = document.createElement('textarea')
+    //attach div with class
+    div.setAttribute('class', 'textbox-area');
+    btn.parentNode.appendChild(div);
+    //attach textarea to above div
+    textbox.placeholder = 'working'
+    textbox.setAttribute('class', 'textbox')
+    div.appendChild(textbox)
+    textbox.focus()
+    //on blur
+    textbox.addEventListener('blur',()=>{
+      div.style.display = 'none';
+      btn.style.display = 'block';
+    })
+    textbox.addEventListener('keydown',(event)=>{
+      event.preventDefault();
+      if(event.key === 'Enter'){
+        //first get from.local storage
+        if(tasks = localStorage.getItem('tasks')){
+          tasks += textbox.value;
+          localStorage.setItem('tasks',tasks)
+          //show to timeline
+          taskdiv = document.createElement('div');
+          taskdiv.setAttribute('class','task');
+          
+          taskcheckbox = document.createElement('input');
+          taskcheckbox.type = 'checkbox'
+          taskcheckbox.id = 'task1';
+          
+          taskcheckbox_label = document.createElement('label');
+          taskcheckbox_label.setAttribute('for','task1');
+          taskcheckbox_label.textContent = tasks;
+          
+          document.querySelector('.timeline').appendChild(taskdiv);
+          taskdiv.appendChild(taskcheckbox);
+          taskdiv.appendChild(taskcheckbox_label);
+
+          // hide
+          div.style.display = 'none';
+          btn.style.display = 'block';
+        }
+        else{
+          localStorage.setItem('tasks',textbox.value)
+        }
+      }
+    })
+  }
+</script>
+</body>
+
+</html>
