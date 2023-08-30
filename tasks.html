@@ -146,11 +146,18 @@ function getTasks(){
         taskcheckbox = document.createElement('input');
         taskcheckbox.type = 'checkbox'
         taskcheckbox.id = 'task'+index;
-        taskcheckbox.setAttribute('onchange', 'done(this)');
+        taskcheckbox.setAttribute('onchange', 'done(this,'+index+')');
         
         taskcheckbox_label = document.createElement('label');
         taskcheckbox_label.setAttribute('for','task'+index);
-        taskcheckbox_label.textContent = item;
+        // if(item.slice(-3))
+        if(item.slice(-3)=='[d]'){
+          taskcheckbox_label.textContent = item.substring(0,item.length-3);
+          taskcheckbox_label.style.textDecoration = 'line-through'
+          taskcheckbox.checked = true;
+        }else{
+          taskcheckbox_label.textContent = item;
+        }
 
         delete_btn = document.createElement('button');
         delete_btn.addEventListener('click',()=>{
@@ -168,13 +175,19 @@ function getTasks(){
 }
 getTasks();
 
-function done(checkbox){
+function done(checkbox, index){
+  //get data from storage - ab aise me save to ho gaya list ke wakt 
+  alltasks = localStorage.getItem('tasks').split('~');
   if(checkbox.checked == true){
+    alltasks[index] += '[d]' ;
+    //mark it
     document.querySelector("label[for="+checkbox.id+"]").style.textDecoration = 'line-through'
   }else{
+    alltasks[index] = alltasks[index].substring(0,alltasks[index].length-3)
     document.querySelector("label[for="+checkbox.id+"]").style.textDecoration = 'none'
   }
-
+  //save to tasks
+  localStorage.setItem('tasks', alltasks.join("~"));
 }
 </script>
 </body>
