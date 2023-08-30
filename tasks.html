@@ -120,15 +120,14 @@ lets develop the basic first
         if(tasks = localStorage.getItem('tasks')){
           tasks += ("~" + textbox.value);
           localStorage.setItem('tasks',tasks);
-          getTasks();
-          // hide
-          div.style.display = 'none';
-          btn.style.display = 'block';
         }
         else{
           localStorage.setItem('tasks',textbox.value)
-          getTasks();
         }
+          // hide
+          div.style.display = 'none';
+          btn.style.display = 'block';
+          getTasks();
       }
     })
   }
