@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+</head>
+
+<body>
+    <script>
+        const plays = ['play cricket', 'play footbaal', 'play carrom', 'other games'];
+        const ol = document.createElement('ol')
+        // ol.style.list
+        document.body.appendChild(ol)
+        plays.forEach((item, index) => {
+
+            let li = document.createElement('li');
+            li.textContent = item;
+            ol.appendChild(li)
+
+            let checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            li.appendChild(checkbox);
+
+            let del_btn = document.createElement('button');
+            del_btn.textContent = 'Delete';
+            del_btn.style.display = 'none';
+            li.appendChild(del_btn);
+
+            checkbox.addEventListener('change', () => {
+                // alert('hi');
+                if (checkbox.checked) {
+                    del_btn.style.display = 'inline'
+                    li.style.textDecoration = 'line-through'
+                } else {
+                    del_btn.style.display = 'none'
+                    li.style.textDecoration = 'none'
+                }
+            })
+
+            del_btn.addEventListener('click', () => {
+                plays.splice(index, 1);
+                del_btn.parentElement.remove();
+            })
+        })
+    </script>
+</body>
+
+</html>

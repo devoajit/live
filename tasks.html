@@ -2,76 +2,85 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tasks v1.0</title>
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasks v1.0</title>
+  <style>
+    .header h1 {
+      text-align: right;
+    }
 
-      .header h1{
-        text-align: right;
-      }
-      .add-area{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      .quote{
-        padding: 20px 30px;
-      }
-      .quote h2{
-        font-size: 40px;
-        font-weight: bold;
-      }
-      .add-button{
-        background-color: blue;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        font-size: 25px;
-        font-weight: bolder;
-        color: white;
-        border: none;
-        box-shadow:0 0 5px rgba(0,0,0,0.25);
-      }
-      .textbox{
-        width: 300px;
-        height: 20px;
-        border-radius: 30px;
-        padding: 10px;
-        border: 2px solid black;
-        font-size: 20px;
-      }
-      .timeline{
-        padding: 20px 10px;
-      }
-      .task{
-        border: 2px dashed black;
-        padding: 10px;
-        display: flex;
-        gap: 20px;
-        align-items: center;
-        margin: 20px 0 ;
-        position: relative;
-      }
-      .task input[type=checkbox]{
-        height: 20px;
-        width: 20px;
-      }
-      .task label{
-        text-transform: capitalize;
-      }
-      .task button{
-        width: 20px;
-        background-image: url(https://www.iconsdb.com/icons/preview/red/trash-10-xxl.png);
-        height: 20px;
-        border: none;
-        background-repeat: round;
-        background-color: transparent;
-        position: absolute;
-        right: 10px;
-      }
-      </style>
+    .add-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .quote {
+      padding: 20px 30px;
+    }
+
+    .quote h2 {
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    .add-button {
+      background-color: blue;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 25px;
+      font-weight: bolder;
+      color: white;
+      border: none;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+    }
+
+    .textbox {
+      width: 300px;
+      height: 20px;
+      border-radius: 30px;
+      padding: 10px;
+      border: 2px solid black;
+      font-size: 20px;
+    }
+
+    .timeline {
+      padding: 20px 10px;
+    }
+
+    .task {
+      border: 2px dashed black;
+      padding: 10px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin: 20px 0;
+      position: relative;
+    }
+
+    .task input[type=checkbox] {
+      height: 20px;
+      width: 20px;
+    }
+
+    .task label {
+      text-transform: capitalize;
+    }
+
+    .task button {
+      width: 20px;
+      background-image: url(https://www.iconsdb.com/icons/preview/red/trash-10-xxl.png);
+      height: 20px;
+      border: none;
+      background-repeat: round;
+      background-color: transparent;
+      position: absolute;
+      right: 10px;
+    }
+  </style>
 </head>
 <!--
 so how will be the project will like app or something else
@@ -79,117 +88,116 @@ lets develop the basic first
 -->
 
 <body>
-<div class="container">
-  <div class="header">
-    <h1>Taskito</h1>
-  </div>
-  <div class="add-area">
-    <div class="quote">
-      <h2>Keep daily goals small, life goals bigger!</h2>
+  <div class="container">
+    <div class="header">
+      <h1>Taskito</h1>
     </div>
-    <button class="add-button" onclick="showTextArea(this)">+</button>
-  </div>
-  <div class="timeline">
-    
-  </div>
-</div>
+    <div class="add-area">
+      <div class="quote">
+        <h2>Keep daily goals small, life goals bigger!</h2>
+      </div>
+      <button class="add-button" onclick="showTextArea(this)">+</button>
+    </div>
+    <div class="timeline">
 
-<script>
-  function showTextArea(btn){
-    btn.style.display = 'none';
-    let div = document.createElement('div')
-    let textbox = document.createElement('textarea')
-    //attach div with class
-    div.setAttribute('class', 'textbox-area');
-    btn.parentNode.appendChild(div);
-    //attach textarea to above div
-    textbox.placeholder = 'working'
-    textbox.setAttribute('class', 'textbox')
-    div.appendChild(textbox)
-    textbox.focus()
-    //on blur
-    textbox.addEventListener('blur',()=>{
-      div.style.display = 'none';
-      btn.style.display = 'block';
-    })
-    //add a task
-    textbox.addEventListener('keydown',(event)=>{
-      if(event.key === 'Enter'){
-        event.preventDefault();
-        //first get from.local storage
-        if(tasks = localStorage.getItem('tasks')){
-          tasks += ("~" + textbox.value);
-          localStorage.setItem('tasks',tasks);
-        }
-        else{
-          localStorage.setItem('tasks',textbox.value)
-        }
+    </div>
+  </div>
+
+  <script>
+    function showTextArea(btn) {
+      btn.style.display = 'none';
+      let div = document.createElement('div')
+      let textbox = document.createElement('textarea')
+      //attach div with class
+      div.setAttribute('class', 'textbox-area');
+      btn.parentNode.appendChild(div);
+      //attach textarea to above div
+      textbox.placeholder = 'working'
+      textbox.setAttribute('class', 'textbox')
+      div.appendChild(textbox)
+      textbox.focus()
+      //on blur
+      textbox.addEventListener('blur', () => {
+        div.style.display = 'none';
+        btn.style.display = 'block';
+      })
+      //add a task
+      textbox.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          //first get from.local storage
+          if (tasks = localStorage.getItem('tasks')) {
+            tasks += ("~" + textbox.value);
+            localStorage.setItem('tasks', tasks);
+          }
+          else {
+            localStorage.setItem('tasks', textbox.value)
+          }
           // hide
           div.style.display = 'none';
           btn.style.display = 'block';
           getTasks();
-      }
-    })
-  }
-  
-function getTasks(){
-  //clear the div before list
-  document.querySelector('.timeline').innerHTML ='';
-  if(tasks = localStorage.getItem('tasks')){
-    //get data which is tasks
-    var alltasks = tasks.split('~');
-    alltasks.forEach((item, index) => {
-        taskdiv = document.createElement('div');
-        taskdiv.setAttribute('class','task');
-        
-        taskcheckbox = document.createElement('input');
-        taskcheckbox.type = 'checkbox'
-        taskcheckbox.id = 'task'+index;
-        taskcheckbox.setAttribute('onchange', 'done(this,'+index+')');
-        
-        taskcheckbox_label = document.createElement('label');
-        taskcheckbox_label.setAttribute('for','task'+index);
-        // if(item.slice(-3))
-        if(item.slice(-3)=='[d]'){
-          taskcheckbox_label.textContent = item.substring(0,item.length-3);
-          taskcheckbox_label.style.textDecoration = 'line-through'
-          taskcheckbox.checked = true;
-        }else{
-          taskcheckbox_label.textContent = item;
         }
+      })
+    }
 
-        delete_btn = document.createElement('button');
-        delete_btn.addEventListener('click',()=>{
-          alltasks.splice(index, 1);
-          localStorage.setItem('tasks', alltasks.join("~"));
-          getTasks();
-        })
-        
-        document.querySelector('.timeline').appendChild(taskdiv);
-        taskdiv.appendChild(taskcheckbox);
-        taskdiv.appendChild(taskcheckbox_label);
-        taskdiv.appendChild(delete_btn);
-    });
-  }
-}
-getTasks();
+    function getTasks() {
+      //clear the div before list
+      document.querySelector('.timeline').innerHTML = '';
+      if (tasks = localStorage.getItem('tasks')) {
+        //get data which is tasks
+        var alltasks = tasks.split('~');
+        alltasks.forEach((item, index) => {
+          taskdiv = document.createElement('div');
+          taskdiv.setAttribute('class', 'task');
 
-function done(checkbox, index){
-  //get data from storage - ab aise me save to ho gaya list ke wakt 
-  alltasks = localStorage.getItem('tasks').split('~');
-  if(checkbox.checked == true){
-    alltasks[index] += '[d]' ;
-    //mark it
-    document.querySelector("label[for="+checkbox.id+"]").style.textDecoration = 'line-through'
-  }else{
-    alltasks[index] = alltasks[index].substring(0,alltasks[index].length-3)
-    document.querySelector("label[for="+checkbox.id+"]").style.textDecoration = 'none'
-  }
-  //save to tasks
-  localStorage.setItem('tasks', alltasks.join("~"));
-}
-</script>
+          taskcheckbox = document.createElement('input');
+          taskcheckbox.type = 'checkbox'
+          taskcheckbox.id = 'task' + index;
+          taskcheckbox.setAttribute('onchange', 'done(this,' + index + ')');
+
+          taskcheckbox_label = document.createElement('label');
+          taskcheckbox_label.setAttribute('for', 'task' + index);
+          // if(item.slice(-3))
+          if (item.slice(-3) == '[d]') {
+            taskcheckbox_label.textContent = item.substring(0, item.length - 3);
+            taskcheckbox_label.style.textDecoration = 'line-through'
+            taskcheckbox.checked = true;
+          } else {
+            taskcheckbox_label.textContent = item;
+          }
+
+          delete_btn = document.createElement('button');
+          delete_btn.addEventListener('click', () => {
+            alltasks.splice(index, 1);
+            localStorage.setItem('tasks', alltasks.join("~"));
+            getTasks();
+          })
+
+          document.querySelector('.timeline').appendChild(taskdiv);
+          taskdiv.appendChild(taskcheckbox);
+          taskdiv.appendChild(taskcheckbox_label);
+          taskdiv.appendChild(delete_btn);
+        });
+      }
+    }
+    getTasks();
+
+    function done(checkbox, index) {
+      //get data from storage - ab aise me save to ho gaya list ke wakt 
+      alltasks = localStorage.getItem('tasks').split('~');
+      if (checkbox.checked == true) {
+        alltasks[index] += '[d]';
+        //mark it
+        document.querySelector("label[for=" + checkbox.id + "]").style.textDecoration = 'line-through'
+      } else {
+        alltasks[index] = alltasks[index].substring(0, alltasks[index].length - 3)
+        document.querySelector("label[for=" + checkbox.id + "]").style.textDecoration = 'none'
+      }
+      //save to tasks
+      localStorage.setItem('tasks', alltasks.join("~"));
+    }
+  </script>
 </body>
 
 </html>
-
