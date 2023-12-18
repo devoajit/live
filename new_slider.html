@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Slider</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: blue;
+            color: white;
+            text-align: center;
+            width: 400px;
+            height: 200px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        const div = document.createElement('div');
+        div.setAttribute('class', 'container');
+        document.body.appendChild(div);
+
+        const h1 = document.createElement('h1');
+        h1.textContent = "New Slider With Stars";
+        h1.style.marginBottom = '10px';
+        div.appendChild(h1);
+
+        const slider = document.createElement('input');
+        slider.type = 'range';
+        slider.max = 10;
+        slider.value = 0;
+        slider.oninput = () => {
+            //div.appendChild(thi)
+            //alert(slider.value);
+            p.textContent = '';
+            for (i = 0; i <= slider.value; i++) {
+                p.textContent += '*'
+            }
+
+        }
+        div.appendChild(slider);
+
+        p = document.createElement('p');
+        p.textContent = slider.value;
+        p.style.fontSize = "30px";
+        p.style.paddingTop = '16px';
+        div.appendChild(p);
+    </script>
+</body>
+
+</html>
